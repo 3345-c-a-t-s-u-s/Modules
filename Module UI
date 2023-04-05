@@ -4,4 +4,906 @@
 
 
 
-local v0={};v0.__index=v0;local v2=game:GetService("TweenService");local v3=game:GetService("UserInputService");local v4=nil;local v5=0.1;local v6=nil;local v7=nil;local function v8(v9,v10)local v37=v9.Position-v6 ;local v38=UDim2.new(v7.X.Scale,v7.X.Offset + v37.X ,v7.Y.Scale,v7.Y.Offset + v37.Y );game:GetService("TweenService"):Create(v10,TweenInfo.new(v5),{Position=v38}):Play();end CheckTable=function(v11,v12)for v627,v628 in ipairs(v11) do if (v628==v12) then return true;end end return false;end;CreateDataGui=function(v13)local v39=Instance.new("ScreenGui");local v40=Instance.new("Frame");local v41=Instance.new("UICorner");local v42=Instance.new("TextLabel");local v43=Instance.new("UIGradient");local v44=Instance.new("Frame");local v45=Instance.new("TextButton");local v46=Instance.new("UIGradient");local v47=Instance.new("Frame");local v48=Instance.new("UICorner");local v49=Instance.new("UIGradient");local v50=Instance.new("TextButton");local v51=Instance.new("UIGradient");local v52=Instance.new("Frame");local v53=Instance.new("UICorner");local v54=Instance.new("UIGradient");local v55=Instance.new("TextButton");local v56=Instance.new("UIGradient");local v57=Instance.new("Frame");local v58=Instance.new("UICorner");local v59=Instance.new("UIGradient");local v60=Instance.new("UIListLayout");v39.Name=tostring(math.random(500,5000))   .. "/"   .. "By Bedol Hub" ;v39.ZIndexBehavior=Enum.ZIndexBehavior.Sibling;if game:GetService("RunService"):IsStudio() then v39.Parent=game:GetService("Players").LocalPlayer.PlayerGui;else GetCoreGUI=function()local v651=setmetatable({},{__index=function(v649,v650)if ypcall(function()game:GetService(v650);end) then return game:GetService(v650);else return nil;end end});return v651.CoreGui;end;v39.Parent=GetCoreGUI();end v40.Name="MoveFrame";v40.Parent=v39;v40.BackgroundColor3=Color3.fromRGB(34,34,34);v40.Position=UDim2.new(0.25,0,0.249660328,0);v40.Size=UDim2.new(0.5,0,0.5,0);v41.CornerRadius=UDim.new(0,4);v41.Parent=v40;v42.Parent=v40;v42.BackgroundColor3=Color3.fromRGB(255,255,255);v42.BackgroundTransparency=1;v42.Position=UDim2.new(0.0176332295,0,0,0);v42.Size=UDim2.new(0.324000001,0,0.100000001,0);v42.Font=Enum.Font.Oswald;v42.Text=v13 or "__Unknow " ;v42.TextColor3=Color3.fromRGB(255,255,255);v42.TextScaled=true;v42.TextSize=14;v42.TextWrapped=true;v43.Rotation=90;v43.Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,0),NumberSequenceKeypoint.new(0.43,0),NumberSequenceKeypoint.new(1,1)});v43.Parent=v42;v44.Name="OtherFrame";v44.Parent=v40;v44.BackgroundColor3=Color3.fromRGB(255,255,255);v44.BackgroundTransparency=1;v44.Position=UDim2.new(0.012,0,0.100000009,0);v44.Size=UDim2.new(0.324000001,0,0.899999976,0);v60.Padding=UDim.new(0,15);v60.FillDirection=Enum.FillDirection.Vertical;v60.HorizontalAlignment=Enum.HorizontalAlignment.Left;v60.SortOrder=Enum.SortOrder.LayoutOrder;v60.VerticalAlignment=Enum.VerticalAlignment.Top;v60.Parent=v44;return v39;end;v0.create=function(v14,v15)if  not v14 then print("Error not Hub Name");return false;end local v102={};setmetatable(v102,v0);v102.Gui=CreateDataGui(v14);v102.OtherButton={};v102.ButtonMain={};v102.ScrollingFrames={};local v107=v102.Gui.MoveFrame;v107.InputBegan:Connect(function(v108)if ((v108.UserInputType==Enum.UserInputType.MouseButton1) or (v108.UserInputType==Enum.UserInputType.Touch)) then v4=true;v6=v108.Position;v7=v107.Position;v108.Changed:Connect(function()if (v108.UserInputState==Enum.UserInputState.End) then v4=false;end end);end end);v3.InputChanged:Connect(function(v108)if ((v108.UserInputType==Enum.UserInputType.MouseMovement) or (v108.UserInputType==Enum.UserInputType.Touch)) then if v4 then v8(v108,v107);end end end);v3.InputBegan:Connect(function(v109)if (v109.KeyCode==Enum.KeyCode.RightControl) then if v107.Visible then v107.Visible=false;else v107.Visible=true;end end end);return v102;end;v0.CreateScrollingFrame=function(v17,v18)local v110=Instance.new("ScrollingFrame");local v111=Instance.new("UIListLayout");v111.Parent=v110;v111.HorizontalAlignment=Enum.HorizontalAlignment.Center;v111.SortOrder=Enum.SortOrder.LayoutOrder;v111.Padding=UDim.new(0,15);v110.Parent=v17.Gui.MoveFrame;v110.Active=true;v110.BackgroundColor3=Color3.fromRGB(255,255,255);v110.BackgroundTransparency=1;v110.BorderSizePixel=0;v110.Position=UDim2.new(0.274439156,0,0.129075989,0);v110.Size=UDim2.new(0.680288434,0,0.771739125,0);v110.ScrollBarThickness=4;v110.Name=v18;v110.Visible=false;table.insert(v17.ScrollingFrames,v110);return v110;end;v0.MakeButtonFrame=function(v17,v20,v21)if  not v20 then return false;end local v129=Instance.new("TextButton");local v130=Instance.new("UIGradient");local v131=Instance.new("Frame");v129.Name=v20   .. "_Button" ;v129.Parent=v17.Gui.MoveFrame.OtherFrame;v129.BackgroundColor3=Color3.fromRGB(255,255,255);v129.BackgroundTransparency=1;v129.BorderColor3=Color3.fromRGB(27,42,53);v129.Position=UDim2.new(0.055555556,0,0.0603864752,0);v129.Size=UDim2.new(0.771604955,0,0.130193233,0);v129.Font=Enum.Font.Oswald;v129.Text=v20;v129.TextColor3=Color3.fromRGB(255,255,255);v129.TextScaled=true;v129.TextSize=14;v129.TextWrapped=true;v129.TextXAlignment=Enum.TextXAlignment.Left;v130.Rotation=90;v130.Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,0),NumberSequenceKeypoint.new(0.73,0.52),NumberSequenceKeypoint.new(1,1)});v130.Parent=v129;v131.Name="Tap_Main";v131.Parent=v129;v131.BackgroundColor3=Color3.fromRGB(255,255,255);v131.Position=UDim2.new(0,0,0.985621572,0);v131.Size=UDim2.new(0.641975284,0,0.100000001,0);v129.MouseEnter:Connect(function()v2:Create(v131,TweenInfo.new(0.5),{Size=UDim2.new(0.641975284,0,0.100000001,0)}):Play();end);v129.MouseLeave:Connect(function()v2:Create(v131,TweenInfo.new(0.5),{Size=UDim2.new(0.1,0,0.100000001,0)}):Play();end);v129.MouseButton1Click:Connect(function()for v643,v644 in ipairs(v17.ScrollingFrames) do if (v644~=v21) then v644.Visible=false;else v644.Visible=true;end end v21.Visible=true;end);return v17;end;v0.CreateButtonOffon=function(v17,v23,v21)if  not v23 then return false;end local v157={Off=UDim2.new(0,0,0,0),On=UDim2.new(0.6,0,0,0)};local v158=Instance.new("BindableEvent");local v159=Instance.new("Frame");local v160=Instance.new("UISizeConstraint");local v161=Instance.new("UICorner");local v162=Instance.new("TextLabel");local v163=Instance.new("Frame");local v164=Instance.new("UICorner");local v165=Instance.new("TextButton");local v166=Instance.new("UICorner");local v167=Instance.new("UIGradient");v167.Color=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(65,65,65)),ColorSequenceKeypoint.new(0.25,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(0.73,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(1,Color3.fromRGB(65,65,65))});v167.Rotation=90;v167.Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,1),NumberSequenceKeypoint.new(0.18,0),NumberSequenceKeypoint.new(0.8,0),NumberSequenceKeypoint.new(1,1)});v167.Parent=v159;v159.Parent=v21;v159.BackgroundColor3=Color3.fromRGB(39,39,39);v159.Size=UDim2.new(0.899999976,0,0.100000001,0);v160.Parent=v159;v160.MaxSize=Vector2.new(335,60);v160.MinSize=Vector2.new(335,60);v161.CornerRadius=UDim.new(0,5);v161.Parent=v159;v162.Name=v23   .. "/"   .. "Off_On" ;v162.Parent=v159;v162.BackgroundColor3=Color3.fromRGB(255,255,255);v162.BackgroundTransparency=1;v162.BorderSizePixel=0;v162.Position=UDim2.new(0,0,0.25,0);v162.Size=UDim2.new(0.699999988,0,0.481494129,0);v162.Font=Enum.Font.SourceSansSemibold;v162.Text=v23;v162.TextColor3=Color3.fromRGB(255,255,255);v162.TextScaled=true;v162.TextSize=14;v162.TextWrapped=true;v163.Name="ButtonFrame";v163.Parent=v159;v163.BackgroundColor3=Color3.fromRGB(255,255,255);v163.BackgroundTransparency=0.7;v163.Position=UDim2.new(0.681000054,0,0.25,0);v163.Size=UDim2.new(0.159701511,0,0.4240008,0);v164.CornerRadius=UDim.new(0,5);v164.Parent=v163;v165.Name="OffonButton";v165.Parent=v163;v165.BackgroundColor3=Color3.fromRGB(255,255,255);v165.BackgroundTransparency=0.2;v165.BorderSizePixel=0;v165.Size=UDim2.new(0.899999976,0,0.899999976,0);v165.SizeConstraint=Enum.SizeConstraint.RelativeYY;v165.Font=Enum.Font.SourceSans;v165.Text="";v165.TextColor3=Color3.fromRGB(0,0,0);v165.TextSize=14;v166.CornerRadius=UDim.new(0,5);v166.Parent=v165;local v217=false;v165.MouseButton1Click:Connect(function()if v217 then v158:Fire(false);v2:Create(v165,TweenInfo.new(0.15),{Position=v157.Off}):Play();v217=false;else v158:Fire(true);v2:Create(v165,TweenInfo.new(0.15),{Position=v157.On}):Play();v217=true;end end);return v158;end;v0.ScrollNumberButton_60=function(v17,v25,v26)local v218=Instance.new("BindableEvent");local v219=Instance.new("Frame");local v220=Instance.new("UISizeConstraint");local v221=Instance.new("UICorner");local v222=Instance.new("TextLabel");local v223=Instance.new("UIGradient");local v224=Instance.new("ScrollingFrame");local v225=Instance.new("TextLabel");v219.Parent=v26;v219.BackgroundColor3=Color3.fromRGB(39,39,39);v219.Size=UDim2.new(0.899999976,0,0.100000001,0);v220.Parent=v219;v220.MaxSize=Vector2.new(335,60);v220.MinSize=Vector2.new(335,60);v221.CornerRadius=UDim.new(0,5);v221.Parent=v219;v222.Name=v25   .. "/"   .. "Text_" ;v222.Parent=v219;v222.BackgroundColor3=Color3.fromRGB(255,255,255);v222.BackgroundTransparency=1;v222.BorderSizePixel=0;v222.Position=UDim2.new(0.140298501,0, -0.0166666675,0);v222.Size=UDim2.new(0.699999988,0,0.273867279,0);v222.Font=Enum.Font.SourceSansSemibold;v222.Text=v25;v222.TextColor3=Color3.fromRGB(255,255,255);v222.TextScaled=true;v222.TextSize=14;v222.TextWrapped=true;v223.Color=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(65,65,65)),ColorSequenceKeypoint.new(0.25,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(0.73,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(1,Color3.fromRGB(65,65,65))});v223.Rotation=90;v223.Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,1),NumberSequenceKeypoint.new(0.18,0),NumberSequenceKeypoint.new(0.8,0),NumberSequenceKeypoint.new(1,1)});v223.Parent=v219;v224.Parent=v219;v224.Active=true;v224.BackgroundColor3=Color3.fromRGB(255,255,255);v224.BackgroundTransparency=1;v224.BorderSizePixel=0;v224.Position=UDim2.new(0.0477611944,0,0.550000012,0);v224.Size=UDim2.new(0.899999976,0,0.116666667,0);v224.CanvasSize=UDim2.new(1.255,0, -10,0);v224.ScrollBarThickness=6;v224.CanvasPosition=Vector2.new(0,0);v225.Name="TextNumber";v225.Parent=v219;v225.BackgroundColor3=Color3.fromRGB(255,255,255);v225.BackgroundTransparency=1;v225.BorderSizePixel=0;v225.Position=UDim2.new(0.298507452,0,0.250000507,0);v225.Size=UDim2.new(0.398507476,0,0.273867279,0);v225.Font=Enum.Font.SourceSansSemibold;v225.Text="0";v225.TextColor3=Color3.fromRGB(255,255,255);v225.TextScaled=true;v225.TextSize=14;v225.TextWrapped=true;v224.Changed:Connect(function()local v630;v225.Text=tostring(math.ceil(v224.CanvasPosition.X/2 ))   .. " / "   .. "60" ;v218:Fire(v224.CanvasPosition.X/2 );end);return v218;end;v0.ScrollNumberButton_120=function(v17,v25,v26)local v275=Instance.new("BindableEvent");local v276=Instance.new("Frame");local v277=Instance.new("UISizeConstraint");local v278=Instance.new("UICorner");local v279=Instance.new("TextLabel");local v280=Instance.new("UIGradient");local v281=Instance.new("ScrollingFrame");local v282=Instance.new("TextLabel");v276.Parent=v26;v276.BackgroundColor3=Color3.fromRGB(39,39,39);v276.Size=UDim2.new(0.899999976,0,0.100000001,0);v277.Parent=v276;v277.MaxSize=Vector2.new(335,60);v277.MinSize=Vector2.new(335,60);v278.CornerRadius=UDim.new(0,5);v278.Parent=v276;v279.Name=v25   .. "/"   .. "Text_" ;v279.Parent=v276;v279.BackgroundColor3=Color3.fromRGB(255,255,255);v279.BackgroundTransparency=1;v279.BorderSizePixel=0;v279.Position=UDim2.new(0.140298501,0, -0.0166666675,0);v279.Size=UDim2.new(0.699999988,0,0.273867279,0);v279.Font=Enum.Font.SourceSansSemibold;v279.Text=v25;v279.TextColor3=Color3.fromRGB(255,255,255);v279.TextScaled=true;v279.TextSize=14;v279.TextWrapped=true;v280.Color=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(65,65,65)),ColorSequenceKeypoint.new(0.25,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(0.73,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(1,Color3.fromRGB(65,65,65))});v280.Rotation=90;v280.Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,1),NumberSequenceKeypoint.new(0.18,0),NumberSequenceKeypoint.new(0.8,0),NumberSequenceKeypoint.new(1,1)});v280.Parent=v276;v281.Parent=v276;v281.Active=true;v281.BackgroundColor3=Color3.fromRGB(255,255,255);v281.BackgroundTransparency=1;v281.BorderSizePixel=0;v281.Position=UDim2.new(0.0477611944,0,0.550000012,0);v281.Size=UDim2.new(0.899999976,0,0.116666667,0);v281.CanvasSize=UDim2.new(1.256,0, -10,0);v281.ScrollBarThickness=6;v281.CanvasPosition=Vector2.new(0,0);v282.Name="TextNumber";v282.Parent=v276;v282.BackgroundColor3=Color3.fromRGB(255,255,255);v282.BackgroundTransparency=1;v282.BorderSizePixel=0;v282.Position=UDim2.new(0.298507452,0,0.250000507,0);v282.Size=UDim2.new(0.398507476,0,0.273867279,0);v282.Font=Enum.Font.SourceSansSemibold;v282.Text="0";v282.TextColor3=Color3.fromRGB(255,255,255);v282.TextScaled=true;v282.TextSize=14;v282.TextWrapped=true;v281.Changed:Connect(function()v282.Text=tostring(math.ceil(v281.CanvasPosition.X))   .. "/"   .. "120" ;v275:Fire(v281.CanvasPosition.X);end);return v275;end;v0.MakeButtonClick=function(v17,v29,v26)if ( not v29 or  not v26) then return false;end local v332=Instance.new("BindableEvent");local v333=Instance.new("Frame");local v334=Instance.new("UISizeConstraint");local v335=Instance.new("UICorner");local v336=Instance.new("TextLabel");local v337=Instance.new("UIGradient");local v338=Instance.new("TextButton");local v339=Instance.new("UICorner");local v340=Instance.new("UIStroke");v333.Parent=v26;v333.BackgroundColor3=Color3.fromRGB(39,39,39);v333.Size=UDim2.new(0.899999976,0,0.100000001,0);v334.Parent=v333;v334.MaxSize=Vector2.new(335,60);v334.MinSize=Vector2.new(335,60);v335.CornerRadius=UDim.new(0,5);v335.Parent=v333;v336.Name=v29   .. "/"   .. "By__" ;v336.Parent=v333;v336.BackgroundColor3=Color3.fromRGB(255,255,255);v336.BackgroundTransparency=1;v336.BorderSizePixel=0;v336.Position=UDim2.new(0,0,0.25,0);v336.Size=UDim2.new(0.699999988,0,0.481494129,0);v336.Font=Enum.Font.SourceSansSemibold;v336.Text=v29;v336.TextColor3=Color3.fromRGB(255,255,255);v336.TextScaled=true;v336.TextSize=14;v336.TextWrapped=true;v337.Color=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(65,65,65)),ColorSequenceKeypoint.new(0.25,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(0.73,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(1,Color3.fromRGB(65,65,65))});v337.Rotation=90;v337.Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,1),NumberSequenceKeypoint.new(0.18,0),NumberSequenceKeypoint.new(0.8,0),NumberSequenceKeypoint.new(1,1)});v337.Parent=v333;v338.Name="Button";v338.Parent=v333;v338.BackgroundColor3=Color3.fromRGB(125,125,125);v338.BackgroundTransparency=0.3;v338.Position=UDim2.new(0.776119351,0,0.25,0);v338.Size=UDim2.new(0.5,0,0.5,0);v338.SizeConstraint=Enum.SizeConstraint.RelativeYY;v338.Font=Enum.Font.SourceSans;v338.Text="";v338.TextColor3=Color3.fromRGB(0,0,0);v338.TextSize=14;v339.CornerRadius=UDim.new(0,5);v339.Parent=v338;v340.ApplyStrokeMode=Enum.ApplyStrokeMode.Border;v340.Color=Color3.fromRGB(255,255,255);v340.Thickness=4.3;v340.Transparency=1;v340.Enabled=true;v340.Parent=v338;v338.MouseButton1Click:Connect(function()v332:Fire(true);v340.Transparency=0.35;v2:Create(v340,TweenInfo.new(0.7),{Transparency=1}):Play();end);return v332;end;v0.DropDown=function(v17,v18,v31)if  not v18 then return false;end local v389={Open=Vector2.new(335,185),Close=Vector2.new(335,45)};local v390=Instance.new("Frame");local v391=Instance.new("UICorner");local v392=Instance.new("UIListLayout");local v393=Instance.new("Frame");local v394=Instance.new("UISizeConstraint");local v395=Instance.new("UICorner");local v396=Instance.new("TextLabel");local v397=Instance.new("UIGradient");local v398=Instance.new("TextButton");local v399=Instance.new("UISizeConstraint");local v400=Instance.new("UIGradient");local v401=Instance.new("ScrollingFrame");local v402=Instance.new("UICorner");local v403=Instance.new("UIListLayout");local v404=Instance.new("UIPadding");v390.Name="TableDropDown";v390.Parent=v31;v390.BackgroundColor3=Color3.fromRGB(0,0,0);v390.BackgroundTransparency=0.6;v390.ClipsDescendants=true;v390.Position=UDim2.new(0.00716750557,0,0,0);v390.Size=UDim2.new(0.985664904,0,0.470950723,0);v391.CornerRadius=UDim.new(0,15);v391.Parent=v390;v392.Parent=v390;v392.HorizontalAlignment=Enum.HorizontalAlignment.Center;v392.SortOrder=Enum.SortOrder.LayoutOrder;v392.Padding=UDim.new(0,15);v393.Name="TopFrame";v393.Parent=v390;v393.BackgroundColor3=Color3.fromRGB(39,39,39);v393.BackgroundTransparency=0.85;v393.Size=UDim2.new(0.899999976,0,0.100000001,0);v394.Parent=v393;v394.MaxSize=Vector2.new(300,50);v394.MinSize=Vector2.new(300,50);v395.CornerRadius=UDim.new(0,5);v395.Parent=v393;v396.Name="NameOfDropDown";v396.Parent=v393;v396.BackgroundColor3=Color3.fromRGB(255,255,255);v396.BackgroundTransparency=1;v396.Position=UDim2.new(0.216666669,0,0.140000001,0);v396.Size=UDim2.new(0.591666639,0,0.5,0);v396.Font=Enum.Font.SourceSansSemibold;v396.Text=v18;v396.TextColor3=Color3.fromRGB(255,255,255);v396.TextScaled=true;v396.TextSize=14;v396.TextWrapped=true;v396.TextXAlignment=Enum.TextXAlignment.Left;v397.Rotation=90;v397.Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,0),NumberSequenceKeypoint.new(0.43,0),NumberSequenceKeypoint.new(1,1)});v397.Parent=v396;v398.Name="OpenButton";v398.Parent=v393;v398.BackgroundColor3=Color3.fromRGB(255,255,255);v398.BackgroundTransparency=1;v398.Position=UDim2.new(0.773333311,0, -0.0199999996,0);v398.Size=UDim2.new(0.800000012,0,0.800000012,0);v398.SizeConstraint=Enum.SizeConstraint.RelativeYY;v398.Font=Enum.Font.SourceSansSemibold;v398.Text="<";v398.TextColor3=Color3.fromRGB(255,255,255);v398.TextScaled=true;v398.TextSize=14;v398.TextStrokeTransparency=0.46;v398.TextTransparency=0.2;v398.TextWrapped=true;v399.Parent=v390;v399.MaxSize=Vector2.new(335,45);v399.MinSize=Vector2.new(335,45);v400.Color=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(65,65,65)),ColorSequenceKeypoint.new(0.18,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(0.83,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(1,Color3.fromRGB(65,65,65))});v400.Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,1),NumberSequenceKeypoint.new(0.06,0),NumberSequenceKeypoint.new(0.89,0),NumberSequenceKeypoint.new(1,1)});v400.Parent=v390;v401.Name="Scrolling";v401.Parent=v390;v401.Active=true;v401.AnchorPoint=Vector2.new(0.5,0.5);v401.BackgroundColor3=Color3.fromRGB(0,0,0);v401.BackgroundTransparency=0.9;v401.BorderSizePixel=0;v401.Position=UDim2.new(0.5,0,0.705555558,0);v401.Size=UDim2.new(0.85,0,0.612,0);v401.CanvasSize=UDim2.new(0,0,1,0);v401.ScrollBarThickness=5;v402.CornerRadius=UDim.new(0,15);v402.Parent=v401;v403.Parent=v401;v403.HorizontalAlignment=Enum.HorizontalAlignment.Center;v403.SortOrder=Enum.SortOrder.LayoutOrder;v403.Padding=UDim.new(0,15);v404.Parent=v401;v404.PaddingBottom=UDim.new(0,8);v404.PaddingLeft=UDim.new(0,8);v404.PaddingRight=UDim.new(0,8);v404.PaddingTop=UDim.new(0,8);local v492=false;v403:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()local v634=v403.AbsoluteContentSize;v401.CanvasSize=UDim2.new(0,0,0,v634.Y);end);v398.MouseButton1Click:Connect(function()if v492 then v492=false;v2:Create(v398,TweenInfo.new(0.5),{Rotation=0}):Play();v2:Create(v399,TweenInfo.new(0.5),{MaxSize=v389.Close}):Play();else v492=true;v2:Create(v398,TweenInfo.new(0.5),{Rotation= -90}):Play();v2:Create(v399,TweenInfo.new(0.5),{MaxSize=v389.Open}):Play();end end);return v401;end;v0.TableDropDown=function(v17,v33)if  not v33 then return false;end local v493={Open=Vector2.new(335,135),Close=Vector2.new(335,45)};local v494=Instance.new("BindableEvent");local v495=Instance.new("BindableEvent");local v496=Instance.new("Frame");local v497=Instance.new("UICorner");local v498=Instance.new("UIListLayout");local v499=Instance.new("Frame");local v500=Instance.new("UISizeConstraint");local v501=Instance.new("UICorner");local v502=Instance.new("TextLabel");local v503=Instance.new("UIGradient");local v504=Instance.new("TextButton");local v505=Instance.new("UISizeConstraint");local v506=Instance.new("UIGradient");local v507=Instance.new("ScrollingFrame");local v508=Instance.new("UICorner");local v509=Instance.new("ObjectValue");local v510=Instance.new("UIPadding");local v511=Instance.new("UIListLayout");local v512={};v496.Name="TableDropDown";v496.Parent=v33;v496.BackgroundColor3=Color3.fromRGB(255,255,255);v496.BackgroundTransparency=0.9;v496.ClipsDescendants=true;v496.Position=UDim2.new(0.00677263783,0,0.330105633,0);v496.Size=UDim2.new(0.986454606,0,0.365316898,0);v497.CornerRadius=UDim.new(0,15);v497.Parent=v496;v498.Parent=v496;v498.HorizontalAlignment=Enum.HorizontalAlignment.Center;v498.SortOrder=Enum.SortOrder.LayoutOrder;v498.Padding=UDim.new(0,15);v499.Name="TopFrame";v499.Parent=v496;v499.BackgroundColor3=Color3.fromRGB(39,39,39);v499.BackgroundTransparency=0.85;v499.Size=UDim2.new(0.899999976,0,0.100000001,0);v500.Parent=v499;v500.MaxSize=Vector2.new(300,50);v500.MinSize=Vector2.new(300,45);v501.CornerRadius=UDim.new(0,5);v501.Parent=v499;v502.Name="TableName";v502.Parent=v499;v502.BackgroundColor3=Color3.fromRGB(255,255,255);v502.BackgroundTransparency=1;v502.Position=UDim2.new(0.216666669,0,0.140000001,0);v502.Size=UDim2.new(0.591666639,0,0.5,0);v502.Font=Enum.Font.SourceSansSemibold;v502.Text="";v502.TextColor3=Color3.fromRGB(255,255,255);v502.TextScaled=true;v502.TextSize=14;v502.TextWrapped=true;v502.TextXAlignment=Enum.TextXAlignment.Left;v503.Rotation=90;v503.Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,0),NumberSequenceKeypoint.new(0.43,0),NumberSequenceKeypoint.new(1,1)});v503.Parent=v502;v504.Name="OpenButton";v504.Parent=v499;v504.BackgroundColor3=Color3.fromRGB(255,255,255);v504.BackgroundTransparency=1;v504.Position=UDim2.new(0.773333311,0, -0.0199999996,0);v504.Size=UDim2.new(0.800000012,0,0.800000012,0);v504.SizeConstraint=Enum.SizeConstraint.RelativeYY;v504.Font=Enum.Font.SourceSansSemibold;v504.Text="<";v504.TextColor3=Color3.fromRGB(255,255,255);v504.TextScaled=true;v504.TextSize=14;v504.TextStrokeTransparency=0.46;v504.TextTransparency=0.2;v504.TextWrapped=true;v505.Parent=v496;v505.MaxSize=Vector2.new(335,45);v505.MinSize=Vector2.new(335,45);v506.Color=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(65,65,65)),ColorSequenceKeypoint.new(0.18,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(0.83,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(1,Color3.fromRGB(65,65,65))});v506.Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,1),NumberSequenceKeypoint.new(0.06,0),NumberSequenceKeypoint.new(0.89,0),NumberSequenceKeypoint.new(1,1)});v506.Parent=v496;v507.Name="Scrolling";v507.Parent=v496;v507.Active=true;v507.AnchorPoint=Vector2.new(0.5,0.5);v507.BackgroundColor3=Color3.fromRGB(0,0,0);v507.BackgroundTransparency=0.9;v507.BorderSizePixel=0;v507.Position=UDim2.new(0.5,0,0.705555558,0);v507.Size=UDim2.new(0.850000024,0,0.492592603,0);v507.ScrollBarThickness=5;v508.CornerRadius=UDim.new(0,15);v508.Parent=v507;v510.Parent=v507;v510.PaddingBottom=UDim.new(0,8);v510.PaddingLeft=UDim.new(0,8);v510.PaddingRight=UDim.new(0,8);v510.PaddingTop=UDim.new(0,8);v511.Parent=v507;v511.HorizontalAlignment=Enum.HorizontalAlignment.Center;v511.SortOrder=Enum.SortOrder.LayoutOrder;v511.Padding=UDim.new(0,15);v511:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()local v636=v511.AbsoluteContentSize;v507.CanvasSize=UDim2.new(0,0,0,v636.Y);end);local v599=false;v495.Event:Connect(function(v600)if CheckTable(v512,v600) then return;end table.insert(v512,v600);v600.Parent=v507;v600:FindFirstChildOfClass("TextButton").MouseButton1Click:Connect(function()v502.TextTransparency=0;v2:Create(v502,TweenInfo.new(0.5),{TextTransparency=0.3}):Play();v509.Value=v600;end);end);v494.Event:Connect(function()for v647,v648 in ipairs(v512) do pcall(function()v648:Destroy();end);end v512={};v509.Value=nil;end);v504.MouseButton1Click:Connect(function()if v599 then v599=false;v2:Create(v504,TweenInfo.new(0.5),{Rotation=0}):Play();v2:Create(v505,TweenInfo.new(0.5),{MaxSize=v493.Close}):Play();else v599=true;v2:Create(v504,TweenInfo.new(0.5),{Rotation= -90}):Play();v2:Create(v505,TweenInfo.new(0.5),{MaxSize=v493.Open}):Play();end end);v509.Changed:Connect(function()if v509.Value then v502.Text=v509.Value.Name or "" ;else v502.Text="";end end);return v496,v495,v509,v494;end;v0.createUI_DropDown=function(v17,v35)if  not v35 then return false;end local v601=Instance.new("Frame");local v602=Instance.new("UICorner");local v603=Instance.new("TextButton");local v604=Instance.new("UISizeConstraint");v601.BackgroundColor3=Color3.fromRGB(0,0,0);v601.BackgroundTransparency=0.9;v601.Size=UDim2.new(0.899999976,0,0.150000006,0);v601.Name=v35;v602.Parent=v601;v604.Parent=v601;v604.MaxSize=Vector2.new(270,35);v604.MinSize=Vector2.new(270,35);v603.Name="Button"   .. v35 ;v603.Parent=v601;v603.BackgroundColor3=Color3.fromRGB(255,255,255);v603.BackgroundTransparency=1;v603.Size=UDim2.new(1,0,1,0);v603.Font=Enum.Font.SourceSansSemibold;v603.Text=v35;v603.TextColor3=Color3.fromRGB(255,255,255);v603.TextScaled=true;v603.TextSize=14;v603.TextStrokeTransparency=0.61;v603.TextTransparency=0.29;v603.TextWrapped=true;return v601;end;return v0;
+local ScriptUI = {}
+
+ScriptUI.__index = ScriptUI
+
+local TweenService = game:GetService('TweenService')
+local UIS = game:GetService('UserInputService')
+
+local dragToggle = nil
+local dragSpeed =  0.1
+local dragStart = nil
+local startPos = nil
+
+local function updateInput(input,frame)
+	local delta = input.Position - dragStart
+	local position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X,
+		startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+	game:GetService('TweenService'):Create(frame, TweenInfo.new(dragSpeed), {Position = position}):Play()
+end
+
+function CheckTable(Table,Object)
+	for i,v in ipairs(Table) do
+		if v == Object then
+			return true
+		end
+	end
+	return false
+end
+
+
+function CreateDataGui(NameHub)
+	local ScreenGui = Instance.new("ScreenGui")
+	local MoveFrame = Instance.new("Frame")
+	local UICorner = Instance.new("UICorner")
+	local TextLabel = Instance.new("TextLabel")
+	local UIGradient = Instance.new("UIGradient")
+	local OtherFrame = Instance.new("Frame")
+	local MainButton = Instance.new("TextButton")
+	local UIGradient_2 = Instance.new("UIGradient")
+	local Tap_Main = Instance.new("Frame")
+	local UICorner_2 = Instance.new("UICorner")
+	local UIGradient_3 = Instance.new("UIGradient")
+	local LocalPlayerButton = Instance.new("TextButton")
+	local UIGradient_4 = Instance.new("UIGradient")
+	local Tap_LocalPlayer = Instance.new("Frame")
+	local UICorner_3 = Instance.new("UICorner")
+	local UIGradient_5 = Instance.new("UIGradient")
+	local EspButton = Instance.new("TextButton")
+	local UIGradient_6 = Instance.new("UIGradient")
+	local Tap_Esp = Instance.new("Frame")
+	local UICorner_4 = Instance.new("UICorner")
+	local UIGradient_7 = Instance.new("UIGradient")
+	local UIListLayout = Instance.new('UIListLayout')
+
+	ScreenGui.Name = tostring(math.random(500,5000))..'/'..'By Bedol Hub'
+	ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+	if game:GetService('RunService'):IsStudio() then
+		ScreenGui.Parent = game:GetService('Players').LocalPlayer.PlayerGui
+	else
+		function GetCoreGUI()
+			local Services = setmetatable({},{
+				__index = function(self, ind)
+					if ypcall(function()game:GetService(ind)end) then
+						return game:GetService(ind)
+					else
+						return nil
+					end
+				end
+			})
+			return Services.CoreGui;
+		end
+		ScreenGui.Parent = GetCoreGUI()
+	end
+	MoveFrame.Name = "MoveFrame"
+	MoveFrame.Parent = ScreenGui
+	MoveFrame.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+	MoveFrame.Position = UDim2.new(0.25, 0, 0.249660328, 0)
+	MoveFrame.Size = UDim2.new(0.5, 0, 0.5, 0)
+
+	UICorner.CornerRadius = UDim.new(0, 4)
+	UICorner.Parent = MoveFrame
+
+	TextLabel.Parent = MoveFrame
+	TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TextLabel.BackgroundTransparency = 1.000
+	TextLabel.Position = UDim2.new(0.0176332295, 0, 0, 0)
+	TextLabel.Size = UDim2.new(0.324000001, 0, 0.100000001, 0)
+	TextLabel.Font = Enum.Font.Oswald
+	TextLabel.Text = NameHub or '__Unknow '
+	TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+	TextLabel.TextScaled = true
+	TextLabel.TextSize = 14.000
+	TextLabel.TextWrapped = true
+
+	UIGradient.Rotation = 90
+	UIGradient.Transparency = NumberSequence.new{NumberSequenceKeypoint.new(0.00, 0.00), NumberSequenceKeypoint.new(0.43, 0.00), NumberSequenceKeypoint.new(1.00, 1.00)}
+	UIGradient.Parent = TextLabel
+
+	OtherFrame.Name = "OtherFrame"
+	OtherFrame.Parent = MoveFrame
+	OtherFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	OtherFrame.BackgroundTransparency = 1.000
+	OtherFrame.Position = UDim2.new(0.012, 0, 0.100000009, 0)
+	OtherFrame.Size = UDim2.new(0.324000001, 0, 0.899999976, 0)
+
+	UIListLayout.Padding = UDim.new(0,15)
+	UIListLayout.FillDirection = Enum.FillDirection.Vertical
+	UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Left
+	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+	UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Top
+	UIListLayout.Parent = OtherFrame
+	return ScreenGui;
+end
+
+
+function ScriptUI.create(NameGui,SpeedMove )
+	if not NameGui then
+		print('Error not Hub Name')
+		return false
+	end
+	local self = {}
+	
+	setmetatable(self,ScriptUI)
+
+	self.Gui = CreateDataGui(NameGui)
+	self.OtherButton = {}
+	self.ButtonMain = {}
+	self.ScrollingFrames = {}
+
+	local MoveFrame = self.Gui.MoveFrame
+	MoveFrame.InputBegan:Connect(function(input)
+		if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then 
+			dragToggle = true
+			dragStart = input.Position
+			startPos = MoveFrame.Position
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragToggle = false
+				end
+			end)
+		end
+	end)
+
+	UIS.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			if dragToggle then
+				updateInput(input,MoveFrame)
+			end
+		end
+	end)
+	UIS.InputBegan:Connect(function(KEY)
+		if KEY.KeyCode == Enum.KeyCode.RightControl then
+			if MoveFrame.Visible then
+				MoveFrame.Visible =false
+			else
+				MoveFrame.Visible = true
+			end
+		end
+	end)
+
+	return self;
+end
+
+function ScriptUI:CreateScrollingFrame(NameFrame)
+	local ScrollingFrame = Instance.new("ScrollingFrame")
+	local UIListLayout = Instance.new("UIListLayout")
+
+	UIListLayout.Parent = ScrollingFrame
+	UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+	UIListLayout.Padding = UDim.new(0, 15)
+	ScrollingFrame.Parent = self.Gui.MoveFrame
+	ScrollingFrame.Active = true
+	ScrollingFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	ScrollingFrame.BackgroundTransparency = 1.000
+	ScrollingFrame.BorderSizePixel = 0
+	ScrollingFrame.Position = UDim2.new(0.274439156, 0, 0.129075989, 0)
+	ScrollingFrame.Size = UDim2.new(0.680288434, 0, 0.771739125, 0)
+	ScrollingFrame.ScrollBarThickness = 4
+	ScrollingFrame.Name = NameFrame
+	ScrollingFrame.Visible = false
+
+	table.insert(self.ScrollingFrames,ScrollingFrame)
+
+	return ScrollingFrame;
+end
+
+function ScriptUI:MakeButtonFrame(ButtonName ,ScrollingFrame )
+	if not ButtonName then
+		return false
+	end
+	local Button = Instance.new("TextButton")
+	local UIGradient  = Instance.new("UIGradient")
+	local Tap_Effect = Instance.new("Frame")
+	
+	Button.Name = ButtonName..'_Button'
+	Button.Parent = self.Gui.MoveFrame.OtherFrame
+	Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Button.BackgroundTransparency = 1.000
+	Button.BorderColor3 = Color3.fromRGB(27, 42, 53)
+	Button.Position = UDim2.new(0.055555556, 0, 0.0603864752, 0)
+	Button.Size = UDim2.new(0.771604955, 0, 0.130193233, 0)
+	Button.Font = Enum.Font.Oswald
+	Button.Text = ButtonName
+	Button.TextColor3 = Color3.fromRGB(255, 255, 255)
+	Button.TextScaled = true
+	Button.TextSize = 14.000
+	Button.TextWrapped = true
+	Button.TextXAlignment = Enum.TextXAlignment.Left
+
+	UIGradient.Rotation = 90
+	UIGradient.Transparency = NumberSequence.new{NumberSequenceKeypoint.new(0.00, 0.00), NumberSequenceKeypoint.new(0.73, 0.52), NumberSequenceKeypoint.new(1.00, 1.00)}
+	UIGradient.Parent = Button
+
+	Tap_Effect.Name = "Tap_Main"
+	Tap_Effect.Parent = Button
+	Tap_Effect.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Tap_Effect.Position = UDim2.new(0, 0, 0.985621572, 0)
+	Tap_Effect.Size = UDim2.new(0.641975284, 0, 0.100000001, 0)
+	
+	Button.MouseEnter:Connect(function()
+		TweenService:Create(Tap_Effect,TweenInfo.new(0.5),{Size = UDim2.new(0.641975284, 0, 0.100000001, 0)}):Play()
+	end)
+
+	Button.MouseLeave:Connect(function()
+		TweenService:Create(Tap_Effect,TweenInfo.new(0.5),{Size = UDim2.new(0.1, 0, 0.100000001, 0)}):Play()
+	end)
+	
+	Button.MouseButton1Click:Connect(function()
+		
+		for i,v : ScrollingFrame in ipairs(self.ScrollingFrames) do
+			if v ~= ScrollingFrame then
+				v.Visible = false
+			else
+				v.Visible = true
+			end
+		end
+		
+		ScrollingFrame.Visible = true
+	end)
+
+	
+	return self;
+end
+
+function ScriptUI:CreateButtonOffon(TextOffOn : string,ScrollingFrame)
+	if not TextOffOn then
+		return false
+	end
+	local PositionSet = {
+		Off = UDim2.new(0,0,0,0),
+		On = UDim2.new(0.6,0,0,0),
+	};
+	local Event = Instance.new('BindableEvent')
+	local Frame = Instance.new("Frame")
+	local UISizeConstraint = Instance.new("UISizeConstraint")
+	local UICorner = Instance.new("UICorner")
+	local TextName = Instance.new("TextLabel")
+	local ButtonFrame = Instance.new("Frame")
+	local UICorner_2 = Instance.new("UICorner")
+	local OffonButton = Instance.new("TextButton")
+	local UICorner_3 = Instance.new("UICorner")
+	local UIGradient = Instance.new("UIGradient")
+
+
+
+	UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(65, 65, 65)), ColorSequenceKeypoint.new(0.25, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(0.73, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(65, 65, 65))}
+	UIGradient.Rotation = 90
+	UIGradient.Transparency = NumberSequence.new{NumberSequenceKeypoint.new(0.00, 1.00), NumberSequenceKeypoint.new(0.18, 0.00), NumberSequenceKeypoint.new(0.80, 0.00), NumberSequenceKeypoint.new(1.00, 1.00)}
+	UIGradient.Parent = Frame
+
+	Frame.Parent = ScrollingFrame
+	Frame.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
+	Frame.Size = UDim2.new(0.899999976, 0, 0.100000001, 0)
+
+	UISizeConstraint.Parent = Frame
+	UISizeConstraint.MaxSize = Vector2.new(335, 60)
+	UISizeConstraint.MinSize = Vector2.new(335, 60)
+
+	UICorner.CornerRadius = UDim.new(0, 5)
+	UICorner.Parent = Frame
+
+	TextName.Name = TextOffOn..'/'..'Off_On'
+	TextName.Parent = Frame
+	TextName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TextName.BackgroundTransparency = 1.000
+	TextName.BorderSizePixel = 0
+	TextName.Position = UDim2.new(0, 0, 0.25, 0)
+	TextName.Size = UDim2.new(0.699999988, 0, 0.481494129, 0)
+	TextName.Font = Enum.Font.SourceSansSemibold
+	TextName.Text = TextOffOn
+	TextName.TextColor3 = Color3.fromRGB(255, 255, 255)
+	TextName.TextScaled = true
+	TextName.TextSize = 14.000
+	TextName.TextWrapped = true
+
+	ButtonFrame.Name = "ButtonFrame"
+	ButtonFrame.Parent = Frame
+	ButtonFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	ButtonFrame.BackgroundTransparency = 0.700
+	ButtonFrame.Position = UDim2.new(0.681000054, 0, 0.25, 0)
+	ButtonFrame.Size = UDim2.new(0.159701511, 0, 0.4240008, 0)
+
+	UICorner_2.CornerRadius = UDim.new(0, 5)
+	UICorner_2.Parent = ButtonFrame
+
+	OffonButton.Name = "OffonButton"
+	OffonButton.Parent = ButtonFrame
+	OffonButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	OffonButton.BackgroundTransparency = 0.200
+	OffonButton.BorderSizePixel = 0
+	OffonButton.Size = UDim2.new(0.899999976, 0, 0.899999976, 0)
+	OffonButton.SizeConstraint = Enum.SizeConstraint.RelativeYY
+	OffonButton.Font = Enum.Font.SourceSans
+	OffonButton.Text = ""
+	OffonButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+	OffonButton.TextSize = 14.000
+
+	UICorner_3.CornerRadius = UDim.new(0, 5)
+	UICorner_3.Parent = OffonButton
+
+	local Value = false
+	OffonButton.MouseButton1Click:Connect(function()
+		if Value then
+			Event:Fire(false)
+			TweenService:Create(OffonButton,TweenInfo.new(0.15),{Position = PositionSet.Off}):Play()
+			Value = false
+		else
+			Event:Fire(true)
+			TweenService:Create(OffonButton,TweenInfo.new(0.15),{Position = PositionSet.On}):Play()
+			Value = true
+		end
+	end)
+
+	return Event;
+end
+
+function ScriptUI:ScrollNumberButton_60(TextName,ScrollingFrameParent)
+	local Event = Instance.new('BindableEvent')
+	local Frame = Instance.new("Frame")
+	local UISizeConstraint = Instance.new("UISizeConstraint")
+	local UICorner = Instance.new("UICorner")
+	local TextNameObject = Instance.new("TextLabel")
+	local UIGradient = Instance.new("UIGradient")
+	local ScrollingFrame = Instance.new("ScrollingFrame")
+	local TextNumber = Instance.new("TextLabel")
+
+	Frame.Parent = ScrollingFrameParent
+	Frame.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
+	Frame.Size = UDim2.new(0.899999976, 0, 0.100000001, 0)
+
+	UISizeConstraint.Parent = Frame
+	UISizeConstraint.MaxSize = Vector2.new(335, 60)
+	UISizeConstraint.MinSize = Vector2.new(335, 60)
+
+	UICorner.CornerRadius = UDim.new(0, 5)
+	UICorner.Parent = Frame
+
+	TextNameObject.Name = TextName..'/'..'Text_'
+	TextNameObject.Parent = Frame
+	TextNameObject.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TextNameObject.BackgroundTransparency = 1.000
+	TextNameObject.BorderSizePixel = 0
+	TextNameObject.Position = UDim2.new(0.140298501, 0, -0.0166666675, 0)
+	TextNameObject.Size = UDim2.new(0.699999988, 0, 0.273867279, 0)
+	TextNameObject.Font = Enum.Font.SourceSansSemibold
+	TextNameObject.Text = TextName
+	TextNameObject.TextColor3 = Color3.fromRGB(255, 255, 255)
+	TextNameObject.TextScaled = true
+	TextNameObject.TextSize = 14.000
+	TextNameObject.TextWrapped = true
+
+	UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(65, 65, 65)), ColorSequenceKeypoint.new(0.25, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(0.73, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(65, 65, 65))}
+	UIGradient.Rotation = 90
+	UIGradient.Transparency = NumberSequence.new{NumberSequenceKeypoint.new(0.00, 1.00), NumberSequenceKeypoint.new(0.18, 0.00), NumberSequenceKeypoint.new(0.80, 0.00), NumberSequenceKeypoint.new(1.00, 1.00)}
+	UIGradient.Parent = Frame
+	ScrollingFrame.Parent = Frame
+	ScrollingFrame.Active = true
+	ScrollingFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	ScrollingFrame.BackgroundTransparency = 1.000
+	ScrollingFrame.BorderSizePixel = 0
+	ScrollingFrame.Position = UDim2.new(0.0477611944, 0, 0.550000012, 0)
+	ScrollingFrame.Size = UDim2.new(0.899999976, 0, 0.116666667, 0)
+	ScrollingFrame.CanvasSize = UDim2.new(1.255, 0, -10, 0)
+	ScrollingFrame.ScrollBarThickness = 6
+	ScrollingFrame.CanvasPosition = Vector2.new(0,0) 
+
+	TextNumber.Name = "TextNumber"
+	TextNumber.Parent = Frame
+	TextNumber.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TextNumber.BackgroundTransparency = 1.000
+	TextNumber.BorderSizePixel = 0
+	TextNumber.Position = UDim2.new(0.298507452, 0, 0.250000507, 0)
+	TextNumber.Size = UDim2.new(0.398507476, 0, 0.273867279, 0)
+	TextNumber.Font = Enum.Font.SourceSansSemibold
+	TextNumber.Text = "0"
+	TextNumber.TextColor3 = Color3.fromRGB(255, 255, 255)
+	TextNumber.TextScaled = true
+	TextNumber.TextSize = 14.000
+	TextNumber.TextWrapped = true
+	ScrollingFrame.Changed:Connect(function()
+		local value
+		TextNumber.Text = tostring(math.ceil(ScrollingFrame.CanvasPosition.X / 2))..' / '..'60'
+		Event:Fire(ScrollingFrame.CanvasPosition.X / 2)
+	end)
+	return Event;
+end
+
+function ScriptUI:ScrollNumberButton_120(TextName,ScrollingFrameParent)
+	local Event = Instance.new('BindableEvent')
+	local Frame = Instance.new("Frame")
+	local UISizeConstraint = Instance.new("UISizeConstraint")
+	local UICorner = Instance.new("UICorner")
+	local TextNameObject = Instance.new("TextLabel")
+	local UIGradient = Instance.new("UIGradient")
+	local ScrollingFrame = Instance.new("ScrollingFrame")
+	local TextNumber = Instance.new("TextLabel")
+
+	Frame.Parent = ScrollingFrameParent
+	Frame.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
+	Frame.Size = UDim2.new(0.899999976, 0, 0.100000001, 0)
+
+	UISizeConstraint.Parent = Frame
+	UISizeConstraint.MaxSize = Vector2.new(335, 60)
+	UISizeConstraint.MinSize = Vector2.new(335, 60)
+
+	UICorner.CornerRadius = UDim.new(0, 5)
+	UICorner.Parent = Frame
+
+	TextNameObject.Name = TextName..'/'..'Text_'
+	TextNameObject.Parent = Frame
+	TextNameObject.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TextNameObject.BackgroundTransparency = 1.000
+	TextNameObject.BorderSizePixel = 0
+	TextNameObject.Position = UDim2.new(0.140298501, 0, -0.0166666675, 0)
+	TextNameObject.Size = UDim2.new(0.699999988, 0, 0.273867279, 0)
+	TextNameObject.Font = Enum.Font.SourceSansSemibold
+	TextNameObject.Text = TextName
+	TextNameObject.TextColor3 = Color3.fromRGB(255, 255, 255)
+	TextNameObject.TextScaled = true
+	TextNameObject.TextSize = 14.000
+	TextNameObject.TextWrapped = true
+
+	UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(65, 65, 65)), ColorSequenceKeypoint.new(0.25, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(0.73, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(65, 65, 65))}
+	UIGradient.Rotation = 90
+	UIGradient.Transparency = NumberSequence.new{NumberSequenceKeypoint.new(0.00, 1.00), NumberSequenceKeypoint.new(0.18, 0.00), NumberSequenceKeypoint.new(0.80, 0.00), NumberSequenceKeypoint.new(1.00, 1.00)}
+	UIGradient.Parent = Frame
+	ScrollingFrame.Parent = Frame
+	ScrollingFrame.Active = true
+	ScrollingFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	ScrollingFrame.BackgroundTransparency = 1.000
+	ScrollingFrame.BorderSizePixel = 0
+	ScrollingFrame.Position = UDim2.new(0.0477611944, 0, 0.550000012, 0)
+	ScrollingFrame.Size = UDim2.new(0.899999976, 0, 0.116666667, 0)
+	ScrollingFrame.CanvasSize = UDim2.new(1.256, 0, -10, 0)
+	ScrollingFrame.ScrollBarThickness = 6
+	ScrollingFrame.CanvasPosition = Vector2.new(0,0) 
+
+	TextNumber.Name = "TextNumber"
+	TextNumber.Parent = Frame
+	TextNumber.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TextNumber.BackgroundTransparency = 1.000
+	TextNumber.BorderSizePixel = 0
+	TextNumber.Position = UDim2.new(0.298507452, 0, 0.250000507, 0)
+	TextNumber.Size = UDim2.new(0.398507476, 0, 0.273867279, 0)
+	TextNumber.Font = Enum.Font.SourceSansSemibold
+	TextNumber.Text = "0"
+	TextNumber.TextColor3 = Color3.fromRGB(255, 255, 255)
+	TextNumber.TextScaled = true
+	TextNumber.TextSize = 14.000
+	TextNumber.TextWrapped = true
+	ScrollingFrame.Changed:Connect(function()
+		TextNumber.Text = tostring(math.ceil(ScrollingFrame.CanvasPosition.X))..'/'..'120'
+		Event:Fire(ScrollingFrame.CanvasPosition.X )
+	end)
+	return Event;
+end
+
+function ScriptUI:MakeButtonClick(NameText,ScrollingFrameParent)
+	if not NameText or not ScrollingFrameParent then
+		return false
+	end
+	local Event = Instance.new('BindableEvent')
+	local Frame = Instance.new("Frame")
+	local UISizeConstraint = Instance.new("UISizeConstraint")
+	local UICorner = Instance.new("UICorner")
+	local TextName = Instance.new("TextLabel")
+	local UIGradient = Instance.new("UIGradient")
+	local Button = Instance.new("TextButton")
+	local UICorner_2 = Instance.new("UICorner")
+	local UIStroke = Instance.new('UIStroke')
+
+	Frame.Parent = ScrollingFrameParent
+	Frame.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
+	Frame.Size = UDim2.new(0.899999976, 0, 0.100000001, 0)
+
+	UISizeConstraint.Parent = Frame
+	UISizeConstraint.MaxSize = Vector2.new(335, 60)
+	UISizeConstraint.MinSize = Vector2.new(335, 60)
+
+	UICorner.CornerRadius = UDim.new(0, 5)
+	UICorner.Parent = Frame
+
+	TextName.Name = NameText..'/'..'By__'
+	TextName.Parent = Frame
+	TextName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TextName.BackgroundTransparency = 1.000
+	TextName.BorderSizePixel = 0
+	TextName.Position = UDim2.new(0, 0, 0.25, 0)
+	TextName.Size = UDim2.new(0.699999988, 0, 0.481494129, 0)
+	TextName.Font = Enum.Font.SourceSansSemibold
+	TextName.Text = NameText
+	TextName.TextColor3 = Color3.fromRGB(255, 255, 255)
+	TextName.TextScaled = true
+	TextName.TextSize = 14.000
+	TextName.TextWrapped = true
+
+	UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(65, 65, 65)), ColorSequenceKeypoint.new(0.25, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(0.73, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(65, 65, 65))}
+	UIGradient.Rotation = 90
+	UIGradient.Transparency = NumberSequence.new{NumberSequenceKeypoint.new(0.00, 1.00), NumberSequenceKeypoint.new(0.18, 0.00), NumberSequenceKeypoint.new(0.80, 0.00), NumberSequenceKeypoint.new(1.00, 1.00)}
+	UIGradient.Parent = Frame
+
+	Button.Name = "Button"
+	Button.Parent = Frame
+	Button.BackgroundColor3 = Color3.fromRGB(125, 125, 125)
+	Button.BackgroundTransparency = 0.300
+	Button.Position = UDim2.new(0.776119351, 0, 0.25, 0)
+	Button.Size = UDim2.new(0.5, 0, 0.5, 0)
+	Button.SizeConstraint = Enum.SizeConstraint.RelativeYY
+	Button.Font = Enum.Font.SourceSans
+	Button.Text = ""
+	Button.TextColor3 = Color3.fromRGB(0, 0, 0)
+	Button.TextSize = 14.000
+
+	UICorner_2.CornerRadius = UDim.new(0, 5)
+	UICorner_2.Parent = Button
+	UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	UIStroke.Color = Color3.fromRGB(255, 255, 255)
+	UIStroke.Thickness = 4.3
+	UIStroke.Transparency = 1
+	UIStroke.Enabled = true
+	UIStroke.Parent = Button
+	Button.MouseButton1Click:Connect(function()
+		Event:Fire(true)
+		UIStroke.Transparency = 0.35
+		TweenService:Create(UIStroke,TweenInfo.new(0.7),{Transparency = 1}):Play()
+	end)
+	return Event;
+end
+
+function ScriptUI:DropDown(NameFrame : string,ScrollFrame)
+	if not NameFrame then
+		return false
+	end
+	local Type = {
+		Open = Vector2.new(335, 185) ,
+
+		Close = Vector2.new(335, 45),
+	}
+
+	local TableDropDown = Instance.new("Frame")
+	local UICorner = Instance.new("UICorner")
+	local UIListLayout = Instance.new("UIListLayout")
+	local TopFrame = Instance.new("Frame")
+	local UISizeConstraint = Instance.new("UISizeConstraint")
+	local UICorner_2 = Instance.new("UICorner")
+	local NameOfDropDown = Instance.new("TextLabel")
+	local UIGradient = Instance.new("UIGradient")
+	local OpenButton = Instance.new("TextButton")
+	local UISizeConstraint_2 = Instance.new("UISizeConstraint")
+	local UIGradient_2 = Instance.new("UIGradient")
+	local Scrolling = Instance.new("ScrollingFrame")
+	local UICorner_3 = Instance.new("UICorner")
+	local UIListLayout_2 = Instance.new("UIListLayout")
+	local UIPadding = Instance.new("UIPadding")
+
+	TableDropDown.Name = "TableDropDown"
+	TableDropDown.Parent = ScrollFrame
+	TableDropDown.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	TableDropDown.BackgroundTransparency = 0.600
+	TableDropDown.ClipsDescendants = true
+	TableDropDown.Position = UDim2.new(0.00716750557, 0, 0, 0)
+	TableDropDown.Size = UDim2.new(0.985664904, 0, 0.470950723, 0)
+
+	UICorner.CornerRadius = UDim.new(0, 15)
+	UICorner.Parent = TableDropDown
+
+	UIListLayout.Parent = TableDropDown
+	UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+	UIListLayout.Padding = UDim.new(0, 15)
+
+	TopFrame.Name = "TopFrame"
+	TopFrame.Parent = TableDropDown
+	TopFrame.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
+	TopFrame.BackgroundTransparency = 0.850
+	TopFrame.Size = UDim2.new(0.899999976, 0, 0.100000001, 0)
+
+	UISizeConstraint.Parent = TopFrame
+	UISizeConstraint.MaxSize = Vector2.new(300, 50)
+	UISizeConstraint.MinSize = Vector2.new(300, 50)
+
+	UICorner_2.CornerRadius = UDim.new(0, 5)
+	UICorner_2.Parent = TopFrame
+
+	NameOfDropDown.Name = "NameOfDropDown"
+	NameOfDropDown.Parent = TopFrame
+	NameOfDropDown.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	NameOfDropDown.BackgroundTransparency = 1.000
+	NameOfDropDown.Position = UDim2.new(0.216666669, 0, 0.140000001, 0)
+	NameOfDropDown.Size = UDim2.new(0.591666639, 0, 0.5, 0)
+	NameOfDropDown.Font = Enum.Font.SourceSansSemibold
+	NameOfDropDown.Text = NameFrame
+	NameOfDropDown.TextColor3 = Color3.fromRGB(255, 255, 255)
+	NameOfDropDown.TextScaled = true
+	NameOfDropDown.TextSize = 14.000
+	NameOfDropDown.TextWrapped = true
+	NameOfDropDown.TextXAlignment = Enum.TextXAlignment.Left
+
+	UIGradient.Rotation = 90
+	UIGradient.Transparency = NumberSequence.new{NumberSequenceKeypoint.new(0.00, 0.00), NumberSequenceKeypoint.new(0.43, 0.00), NumberSequenceKeypoint.new(1.00, 1.00)}
+	UIGradient.Parent = NameOfDropDown
+
+	OpenButton.Name = "OpenButton"
+	OpenButton.Parent = TopFrame
+	OpenButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	OpenButton.BackgroundTransparency = 1.000
+	OpenButton.Position = UDim2.new(0.773333311, 0, -0.0199999996, 0)
+	OpenButton.Size = UDim2.new(0.800000012, 0, 0.800000012, 0)
+	OpenButton.SizeConstraint = Enum.SizeConstraint.RelativeYY
+	OpenButton.Font = Enum.Font.SourceSansSemibold
+	OpenButton.Text = "<"
+	OpenButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+	OpenButton.TextScaled = true
+	OpenButton.TextSize = 14.000
+	OpenButton.TextStrokeTransparency = 0.460
+	OpenButton.TextTransparency = 0.200
+	OpenButton.TextWrapped = true
+
+	UISizeConstraint_2.Parent = TableDropDown
+	UISizeConstraint_2.MaxSize = Vector2.new(335, 45)
+	UISizeConstraint_2.MinSize = Vector2.new(335, 45)
+
+	UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(65, 65, 65)), ColorSequenceKeypoint.new(0.18, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(0.83, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(65, 65, 65))}
+	UIGradient_2.Transparency = NumberSequence.new{NumberSequenceKeypoint.new(0.00, 1.00), NumberSequenceKeypoint.new(0.06, 0.00), NumberSequenceKeypoint.new(0.89, 0.00), NumberSequenceKeypoint.new(1.00, 1.00)}
+	UIGradient_2.Parent = TableDropDown
+
+	Scrolling.Name = "Scrolling"
+	Scrolling.Parent = TableDropDown
+	Scrolling.Active = true
+	Scrolling.AnchorPoint = Vector2.new(0.5, 0.5)
+	Scrolling.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	Scrolling.BackgroundTransparency = 0.900
+	Scrolling.BorderSizePixel = 0
+	Scrolling.Position = UDim2.new(0.5, 0, 0.705555558, 0)
+	Scrolling.Size = UDim2.new(0.85, 0,0.612, 0)
+	Scrolling.CanvasSize = UDim2.new(0, 0, 1, 0)
+	Scrolling.ScrollBarThickness = 5
+
+	UICorner_3.CornerRadius = UDim.new(0, 15)
+	UICorner_3.Parent = Scrolling
+
+	UIListLayout_2.Parent = Scrolling
+	UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+	UIListLayout_2.Padding = UDim.new(0, 15)
+
+	UIPadding.Parent = Scrolling
+	UIPadding.PaddingBottom = UDim.new(0, 8)
+	UIPadding.PaddingLeft = UDim.new(0, 8)
+	UIPadding.PaddingRight = UDim.new(0, 8)
+	UIPadding.PaddingTop = UDim.new(0, 8)
+
+	local IsOpen = false
+	UIListLayout_2:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+		local absoluteSize = UIListLayout_2.AbsoluteContentSize
+		Scrolling.CanvasSize = UDim2.new(0, 0 , 0, absoluteSize.Y)
+	end)
+	OpenButton.MouseButton1Click:Connect(function()
+		if IsOpen then
+			IsOpen = false
+			TweenService:Create(OpenButton,TweenInfo.new(0.5),{Rotation = 0}):Play()
+			TweenService:Create(UISizeConstraint_2,TweenInfo.new(0.5),{MaxSize = Type.Close}):Play()
+		else
+			IsOpen = true
+			TweenService:Create(OpenButton,TweenInfo.new(0.5),{Rotation = -90}):Play()
+			TweenService:Create(UISizeConstraint_2,TweenInfo.new(0.5),{MaxSize = Type.Open}):Play()
+
+		end
+	end)
+
+	return  Scrolling;
+end
+
+function ScriptUI:TableDropDown(Parent : GuiObject)
+	if not Parent then
+		return false
+	end
+	local Type = {
+		Open = Vector2.new(335, 135) ,
+
+		Close = Vector2.new(335, 45),
+	}
+	local ClearObject = Instance.new('BindableEvent')
+	local NewObject = Instance.new('BindableEvent')
+	local TableDropDown = Instance.new("Frame")
+	local UICorner = Instance.new("UICorner")
+	local UIListLayout = Instance.new("UIListLayout")
+	local TopFrame = Instance.new("Frame")
+	local UISizeConstraint = Instance.new("UISizeConstraint")
+	local UICorner_2 = Instance.new("UICorner")
+	local TableName = Instance.new("TextLabel")
+	local UIGradient = Instance.new("UIGradient")
+	local OpenButton = Instance.new("TextButton")
+	local UISizeConstraint_2 = Instance.new("UISizeConstraint")
+	local UIGradient_2 = Instance.new("UIGradient")
+	local Scrolling = Instance.new("ScrollingFrame")
+	local UICorner_3 = Instance.new("UICorner")
+	local Search = Instance.new('ObjectValue')
+	local UIPadding = Instance.new("UIPadding")
+	local UIListLayout33 = Instance.new("UIListLayout")
+	local SearchObject = {}
+
+	TableDropDown.Name = "TableDropDown"
+	TableDropDown.Parent = Parent
+	TableDropDown.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TableDropDown.BackgroundTransparency = 0.900
+	TableDropDown.ClipsDescendants = true
+	TableDropDown.Position = UDim2.new(0.00677263783, 0, 0.330105633, 0)
+	TableDropDown.Size = UDim2.new(0.986454606, 0, 0.365316898, 0)
+
+	UICorner.CornerRadius = UDim.new(0, 15)
+	UICorner.Parent = TableDropDown
+
+	UIListLayout.Parent = TableDropDown
+	UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+	UIListLayout.Padding = UDim.new(0, 15)
+
+	TopFrame.Name = "TopFrame"
+	TopFrame.Parent = TableDropDown
+	TopFrame.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
+	TopFrame.BackgroundTransparency = 0.850
+	TopFrame.Size = UDim2.new(0.899999976, 0, 0.100000001, 0)
+
+	UISizeConstraint.Parent = TopFrame
+	UISizeConstraint.MaxSize = Vector2.new(300, 50)
+	UISizeConstraint.MinSize = Vector2.new(300, 45)
+
+	UICorner_2.CornerRadius = UDim.new(0, 5)
+	UICorner_2.Parent = TopFrame
+
+	TableName.Name = "TableName"
+	TableName.Parent = TopFrame
+	TableName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TableName.BackgroundTransparency = 1.000
+	TableName.Position = UDim2.new(0.216666669, 0, 0.140000001, 0)
+	TableName.Size = UDim2.new(0.591666639, 0, 0.5, 0)
+	TableName.Font = Enum.Font.SourceSansSemibold
+	TableName.Text = ""
+	TableName.TextColor3 = Color3.fromRGB(255, 255, 255)
+	TableName.TextScaled = true
+	TableName.TextSize = 14.000
+	TableName.TextWrapped = true
+	TableName.TextXAlignment = Enum.TextXAlignment.Left
+
+	UIGradient.Rotation = 90
+	UIGradient.Transparency = NumberSequence.new{NumberSequenceKeypoint.new(0.00, 0.00), NumberSequenceKeypoint.new(0.43, 0.00), NumberSequenceKeypoint.new(1.00, 1.00)}
+	UIGradient.Parent = TableName
+
+	OpenButton.Name = "OpenButton"
+	OpenButton.Parent = TopFrame
+	OpenButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	OpenButton.BackgroundTransparency = 1.000
+	OpenButton.Position = UDim2.new(0.773333311, 0, -0.0199999996, 0)
+	OpenButton.Size = UDim2.new(0.800000012, 0, 0.800000012, 0)
+	OpenButton.SizeConstraint = Enum.SizeConstraint.RelativeYY
+	OpenButton.Font = Enum.Font.SourceSansSemibold
+	OpenButton.Text = "<"
+	OpenButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+	OpenButton.TextScaled = true
+	OpenButton.TextSize = 14.000
+	OpenButton.TextStrokeTransparency = 0.460
+	OpenButton.TextTransparency = 0.200
+	OpenButton.TextWrapped = true
+
+	UISizeConstraint_2.Parent = TableDropDown
+	UISizeConstraint_2.MaxSize = Vector2.new(335, 45)
+	UISizeConstraint_2.MinSize = Vector2.new(335, 45)
+
+	UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(65, 65, 65)), ColorSequenceKeypoint.new(0.18, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(0.83, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(65, 65, 65))}
+	UIGradient_2.Transparency = NumberSequence.new{NumberSequenceKeypoint.new(0.00, 1.00), NumberSequenceKeypoint.new(0.06, 0.00), NumberSequenceKeypoint.new(0.89, 0.00), NumberSequenceKeypoint.new(1.00, 1.00)}
+	UIGradient_2.Parent = TableDropDown
+
+	Scrolling.Name = "Scrolling"
+	Scrolling.Parent = TableDropDown
+	Scrolling.Active = true
+	Scrolling.AnchorPoint = Vector2.new(0.5, 0.5)
+	Scrolling.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	Scrolling.BackgroundTransparency = 0.900
+	Scrolling.BorderSizePixel = 0
+	Scrolling.Position = UDim2.new(0.5, 0, 0.705555558, 0)
+	Scrolling.Size = UDim2.new(0.850000024, 0, 0.492592603, 0)
+	Scrolling.ScrollBarThickness = 5
+
+	UICorner_3.CornerRadius = UDim.new(0, 15)
+	UICorner_3.Parent = Scrolling
+
+	
+	UIPadding.Parent = Scrolling
+	UIPadding.PaddingBottom = UDim.new(0, 8)
+	UIPadding.PaddingLeft = UDim.new(0, 8)
+	UIPadding.PaddingRight = UDim.new(0, 8)
+	UIPadding.PaddingTop = UDim.new(0, 8)
+
+
+	UIListLayout33.Parent = Scrolling
+	UIListLayout33.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	UIListLayout33.SortOrder = Enum.SortOrder.LayoutOrder
+	UIListLayout33.Padding = UDim.new(0, 15)
+	UIListLayout33:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+		local absoluteSize = UIListLayout33.AbsoluteContentSize
+		Scrolling.CanvasSize = UDim2.new(0, 0 , 0, absoluteSize.Y)
+	end)
+	local IsOpen = false
+	NewObject.Event:Connect(function(Object : GuiObject)
+		if CheckTable(SearchObject,Object) then
+			return
+		end
+		table.insert(SearchObject,Object)
+		Object.Parent = Scrolling
+		Object:FindFirstChildOfClass('TextButton').MouseButton1Click:Connect(function()
+			TableName.TextTransparency = 0
+			TweenService:Create(TableName,TweenInfo.new(0.5),{TextTransparency = 0.3}):Play()
+			Search.Value = Object
+		end)
+	end)
+	ClearObject.Event:Connect(function()
+		for i,v in ipairs(SearchObject) do
+			pcall(function()
+				v:Destroy()
+			end)
+		end
+		SearchObject = {}
+		Search.Value = nil
+	end)
+	OpenButton.MouseButton1Click:Connect(function()
+		if IsOpen then
+			IsOpen = false
+			TweenService:Create(OpenButton,TweenInfo.new(0.5),{Rotation = 0}):Play()
+			TweenService:Create(UISizeConstraint_2,TweenInfo.new(0.5),{MaxSize = Type.Close}):Play()
+		else
+			IsOpen = true
+			TweenService:Create(OpenButton,TweenInfo.new(0.5),{Rotation = -90}):Play()
+			TweenService:Create(UISizeConstraint_2,TweenInfo.new(0.5),{MaxSize = Type.Open}):Play()
+
+		end
+	end)
+	Search.Changed:Connect(function()
+		if Search.Value then
+			TableName.Text = Search.Value.Name or ''
+		else
+			TableName.Text = ''
+		end
+	end)
+
+	return TableDropDown,NewObject,Search,ClearObject;
+end
+
+function ScriptUI:createUI_DropDown(Name : string)
+	if not Name then
+		return false
+	end
+	local Frame = Instance.new("Frame")
+	local UICorner = Instance.new("UICorner")
+	local Button = Instance.new("TextButton")
+	local UISizeConstraint_UI = Instance.new("UISizeConstraint")
+
+	Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	Frame.BackgroundTransparency = 0.900
+	Frame.Size = UDim2.new(0.899999976, 0, 0.150000006, 0)
+	Frame.Name = Name
+	UICorner.Parent = Frame
+	UISizeConstraint_UI.Parent = Frame
+	UISizeConstraint_UI.MaxSize = Vector2.new(270, 35)
+	UISizeConstraint_UI.MinSize = Vector2.new(270, 35)
+
+	Button.Name = "Button"..Name
+	Button.Parent = Frame
+	Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Button.BackgroundTransparency = 1.000
+	Button.Size = UDim2.new(1, 0, 1, 0)
+	Button.Font = Enum.Font.SourceSansSemibold
+	Button.Text = Name
+	Button.TextColor3 = Color3.fromRGB(255, 255, 255)
+	Button.TextScaled = true
+	Button.TextSize = 14.000
+	Button.TextStrokeTransparency = 0.610
+	Button.TextTransparency = 0.290
+	Button.TextWrapped = true
+	return Frame;
+end
+
+return ScriptUI;
