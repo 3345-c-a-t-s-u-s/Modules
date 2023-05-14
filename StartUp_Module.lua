@@ -58,7 +58,7 @@ function Create_Dta_UI(self)
 	Movement.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
 	Movement.BorderSizePixel = 0
 	Movement.Position = UDim2.new(0.5,0,0.5,0)
-	Movement.Size = UDim2.new(0.550000012, 0, 0.550000012, 0)
+	Movement.Size = UDim2.new(0.550000012, 0, 0.650000012, 0)
 	Movement.AnchorPoint = Vector2.new(0.5,0.5)
 	Movement.ClipsDescendants = true
 	UICorner.CornerRadius = UDim.new(0, 4)
