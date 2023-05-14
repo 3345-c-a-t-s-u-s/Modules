@@ -424,7 +424,7 @@ function UI:CreateButton(Parent,Title___,callback)
 	Button_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	Button_2.BackgroundTransparency = 1.000
 	Button_2.Position = UDim2.new(0.0791801214, 0, 0.249918208, 0)
-	Button_2.Size = UDim2.new(0.841639757, 0, 0.50000006, 0)
+	Button_2.Size = UDim2.new(0.741639757, 0, 0.50000006, 0)
 	Button_2.Font = Enum.Font.ArialBold
 	Button_2.Text = Title___ or 'unknow'
 	Button_2.TextColor3 = Color3.fromRGB(255, 255, 255)
