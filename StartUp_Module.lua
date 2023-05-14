@@ -136,11 +136,16 @@ function Create_Dta_UI(self)
 	UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
 	UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
 	UIListLayout_2.VerticalAlignment = Enum.VerticalAlignment.Bottom
+	
+	UIListLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+		local absoluteSize = UIListLayout.AbsoluteContentSize
+		Buttons.CanvasSize = UDim2.new(0, absoluteSize.X, 0, absoluteSize.Y)
+	end)
 	return Data
 end
 
 function Create__Notification(self,Titlesss,_time)
-	
+
 	local Notification = Instance.new("Frame")
 	local Frame = Instance.new("Frame")
 	local UICorner = Instance.new("UICorner")
@@ -187,7 +192,7 @@ function Create__Notification(self,Titlesss,_time)
 	ContDown.Position = UDim2.new(0.5, 0, 0.5, 0)
 	ContDown.Size = UDim2.new(1, 0, 0.5, 0)
 	ContDown.BorderSizePixel = 0
-	
+
 	UICorner_3.CornerRadius = UDim.new(0, 4)
 	UICorner_3.Parent = ContDown
 
@@ -239,7 +244,7 @@ function UI.new(__title__,Keybind)
 	local IsToggle = true
 	UserinputService.InputBegan:Connect(function(Keey)
 		if Keey.KeyCode == self.ToggleKey then
-			
+
 			local movement = self.DataUI.Movement
 			if  IsToggle  then
 				TweenService:Create(movement,TweenInfo.new(0.65,Enum.EasingStyle.Back,Enum.EasingDirection.In),{Size = UDim2.new(0,0,0,0)}):Play()
@@ -334,9 +339,10 @@ function UI:	CreateSection(SectionTitle)
 	UIAspectRatioConstraint.Parent = Frame
 	UIAspectRatioConstraint.AspectRatio = 2.000
 	
+
 	---------------------------------------------
 	-------------- Create frame 
-	
+
 	local SSS_F = Instance.new("Frame")
 	local UICorner = Instance.new("UICorner")
 	local ScrollingFrame = Instance.new("ScrollingFrame")
@@ -390,6 +396,10 @@ function UI:	CreateSection(SectionTitle)
 				end
 			end
 		end
+	end)
+	UIListLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+		local absoluteSize = UIListLayout.AbsoluteContentSize
+		ScrollingFrame.CanvasSize = UDim2.new(0, absoluteSize.X, 0, absoluteSize.Y)
 	end)
 	return ScrollingFrame
 end
@@ -458,7 +468,7 @@ function UI:CreateButton(Parent,Title___,callback)
 
 	UICorner_2.CornerRadius = UDim.new(0, 4)
 	UICorner_2.Parent = Tap
-	
+
 	Button_2.MouseButton1Click:Connect(function()
 		Tap.Size =  UDim2.new(0, 0, 0.100000001, 0)
 		Tap.BackgroundTransparency = 0
@@ -561,7 +571,7 @@ function UI:CreateToggle(Parent,title,callback)
 	UIGradient2.Transparency = NumberSequence.new{NumberSequenceKeypoint.new(0.00, 0.35), NumberSequenceKeypoint.new(0.50, 0.00), NumberSequenceKeypoint.new(1.00, 0.34)}
 	UIGradient2.Parent = UIStroke
 	UIGradient2.Rotation = 0
-	
+
 	Toggle_2.MouseButton1Click:Connect(function()
 		if Bools then
 			Bools = false
@@ -627,7 +637,7 @@ function UI:CreateTitle(Parent,Title__)
 
 	UICorner_2.CornerRadius = UDim.new(0, 4)
 	UICorner_2.Parent = Tap
-	
+
 	return Title
 end
 
@@ -635,7 +645,7 @@ function UI:CreateCopy(Parent,title,setclipbord)
 	if not Parent or not title then
 		return
 	end
-	
+
 
 	local Copy = Instance.new("Frame")
 	local UICorner = Instance.new("UICorner")
@@ -697,6 +707,7 @@ function UI:CreateKeybinds(Parent,tile,Dats,callback)
 	if not Parent or not tile or not Dats or not callback then
 		return
 	end
+	
 	local Keybinds = Instance.new("Frame")
 	local UICorner = Instance.new("UICorner")
 	local UIGradient = Instance.new("UIGradient")
@@ -777,6 +788,7 @@ function UI:CreateKeybinds(Parent,tile,Dats,callback)
 
 	UIGradient_4.Transparency = NumberSequence.new{NumberSequenceKeypoint.new(0.00, 0.35), NumberSequenceKeypoint.new(0.50, 0.00), NumberSequenceKeypoint.new(1.00, 0.34)}
 	UIGradient_4.Parent = Button
+	Button.Text= Dats.Name
 	Button.MouseButton1Click:Connect(function()
 		local isk = false
 		local Keycode = nil
