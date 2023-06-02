@@ -537,7 +537,7 @@ function KW.Window(TITLE_WINDOW)
 		end
 	end)
 	
-	return Section
+	return Section,conntroller
 end
 
 function KW.Change_Key_Toggle(NewKey)
