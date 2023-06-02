@@ -23,7 +23,8 @@ function  Noification.Create()
 	UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 	UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Bottom
-
+	UIListLayout.Padding = UDim.new(0,12)
+	
 	local Functions = {}
 
 	function Functions:NewNoification(CreatorName,NoificationText,Time)
@@ -128,7 +129,9 @@ function  Noification.Create()
 		TweenService:Create(controller,TweenInfo.new(0.75),{Position = UDim2.new(0,0,0,0)}):Play()
 
 		local tween = TweenService:Create(load,TweenInfo.new(Time or 1),{Size = UDim2.new(0, 0, 0.5, 0)})
-
+		
+		tween:Play()
+		
 		tween.Completed:Connect(function()
 			TweenService:Create(controller,TweenInfo.new(0.75),{Position = UDim2.new(1.5,0,0,0)}):Play()
 			game:GetService('Debris'):AddItem(main,1)
