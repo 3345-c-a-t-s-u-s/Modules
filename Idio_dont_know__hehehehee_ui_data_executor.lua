@@ -49,7 +49,7 @@ function Create_Ripple(Parent : Frame)
 	UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 	UIStroke.Color = Color3.fromRGB(255,255,255)
 	UIStroke.LineJoinMode = Enum.LineJoinMode.Round
-	UIStroke.Thickness = 5.5
+	UIStroke.Thickness = 14
 	UIStroke.Transparency = 0.3
 	
 	UICorner.CornerRadius = UDim.new(0.5, 0)
@@ -272,7 +272,7 @@ function KW.Window(TITLE_WINDOW,TOGGLE_KEY)
 
 			Button.Name = "Button"
 			Button.Parent = ScrollingFrame
-			Button.BackgroundColor3 = Color3.fromRGB(58, 58, 58)
+			Button.BackgroundColor3 = Color3.fromRGB(108, 108, 108)
 			Button.BackgroundTransparency = 0.450
 			Button.Size = UDim2.new(0.980000019, 0, 0.5, 0)
 
@@ -317,7 +317,7 @@ function KW.Window(TITLE_WINDOW,TOGGLE_KEY)
 
 			Keybind.Name = "Keybind"
 			Keybind.Parent = ScrollingFrame
-			Keybind.BackgroundColor3 = Color3.fromRGB(58, 58, 58)
+			Keybind.BackgroundColor3 = Color3.fromRGB(108, 108, 108)
 			Keybind.BackgroundTransparency = 0.450
 			Keybind.Size = UDim2.new(0.980000019, 0, 0.5, 0)
 
@@ -394,7 +394,7 @@ function KW.Window(TITLE_WINDOW,TOGGLE_KEY)
 
 			Toggle.Name = "Toggle"
 			Toggle.Parent = ScrollingFrame
-			Toggle.BackgroundColor3 = Color3.fromRGB(58, 58, 58)
+			Toggle.BackgroundColor3 = Color3.fromRGB(108, 108, 108)
 			Toggle.BackgroundTransparency = 0.450
 			Toggle.Size = UDim2.new(0.980000019, 0, 0.5, 0)
 
