@@ -33,10 +33,11 @@ end
 
 function Create_Ripple(Parent : Frame)
 	Parent.ClipsDescendants = true
-	
+
 	local ripple = Instance.new("Frame")
 	local UICorner = Instance.new("UICorner")
-
+	local UIStroke = Instance.new('UIStroke',ripple)
+	
 	ripple.Name = "ripple"
 	ripple.Parent = Parent
 	ripple.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -45,9 +46,15 @@ function Create_Ripple(Parent : Frame)
 	ripple.Size = UDim2.new(0,0,0,0)
 	ripple.SizeConstraint = Enum.SizeConstraint.RelativeYY
 	
+	UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	UIStroke.Color = Color3.fromRGB(255,255,255)
+	UIStroke.LineJoinMode = Enum.LineJoinMode.Round
+	UIStroke.Thickness = 5.5
+	UIStroke.Transparency = 0.3
+	
 	UICorner.CornerRadius = UDim.new(0.5, 0)
 	UICorner.Parent = ripple
-	
+
 	local buttonAbsoluteSize = Parent.AbsoluteSize
 	local buttonAbsolutePosition = Parent.AbsolutePosition
 
@@ -64,17 +71,18 @@ function Create_Ripple(Parent : Frame)
 	local bottomLeft = CalculateDistance(mouseRelativePosition, Vector2.new(0, buttonAbsoluteSize.Y))
 
 	local Size_UP = UDim2.new(50,0,50,0)
-	tween:Create(ripple,TweenInfo.new(1.65),{Size = Size_UP,BackgroundTransparency = 1}):Play()
-	game:GetService('Debris'):AddItem(ripple,1.85)
+	tween:Create(ripple,TweenInfo.new(2),{Size = Size_UP,BackgroundTransparency = 1}):Play()
+	game:GetService('Debris'):AddItem(ripple,2.2)
 end
 
-function KW.Window(TITLE_WINDOW)
+function KW.Window(TITLE_WINDOW,TOGGLE_KEY)
+	KW.KeyToggle = TOGGLE_KEY or Enum.KeyCode.RightControl
 	
 	local dragToggle = nil
 	local dragSpeed = 0.25
 	local dragStart = nil
 	local startPos = nil
-	
+
 	local conntroller = Instance.new("ScreenGui") KW_ScreenGui = conntroller
 	local Frame = Instance.new("Frame")
 	local UICorner = Instance.new("UICorner")
@@ -156,21 +164,21 @@ function KW.Window(TITLE_WINDOW)
 	UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 	UIListLayout.Padding = UDim.new(0, 12)
-	
+
 	UIListLayout:GetPropertyChangedSignal('AbsoluteContentSize'):Connect(function()
 		local Gan_Y = UIListLayout.AbsoluteContentSize.Y
 		ExplorerFrame.CanvasSize = UDim2.new(0,0,0,Gan_Y)
 	end)
-	
+
 	local Section = {}
 	local SectionList = {}
-	
+
 	function Section:NewSection(Title)
 		local Section = Instance.new("Frame")
 		local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
 		local UICorner = Instance.new("UICorner")
 		local Button = Instance.new("TextButton")
-		
+
 		Section.Name = "Section"
 		Section.Parent = ExplorerFrame
 		Section.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -196,7 +204,7 @@ function KW.Window(TITLE_WINDOW)
 		Button.TextScaled = true
 		Button.TextSize = 14.000
 		Button.TextWrapped = true
-		
+
 		-----------------------------
 		local SectionFrame = Instance.new("Frame")
 		local UICorner = Instance.new("UICorner")
@@ -233,12 +241,12 @@ function KW.Window(TITLE_WINDOW)
 		UIListLayout_Of_Section.HorizontalAlignment = Enum.HorizontalAlignment.Center
 		UIListLayout_Of_Section.SortOrder = Enum.SortOrder.LayoutOrder
 		UIListLayout_Of_Section.Padding = UDim.new(0, 5)
-		
+
 		UIListLayout_Of_Section:GetPropertyChangedSignal('AbsoluteContentSize'):Connect(function()
 			local Gan_Y = UIListLayout_Of_Section.AbsoluteContentSize.Y
 			ScrollingFrame.CanvasSize = UDim2.new(0,0,0,Gan_Y)
 		end)
-		
+
 		table.insert(SectionList,SectionFrame)
 		Button.MouseButton1Click:Connect(function()
 			for i,v in ipairs(SectionList) do
@@ -252,9 +260,9 @@ function KW.Window(TITLE_WINDOW)
 			SectionFrame.Visible = true
 			Section.Visible = true
 		end)
-		
+
 		local Opstions = {}
-		
+
 		function Opstions:NewButton(__Title__,callback)
 			callback = callback or function() end
 			local Button = Instance.new("Frame")
@@ -264,7 +272,7 @@ function KW.Window(TITLE_WINDOW)
 
 			Button.Name = "Button"
 			Button.Parent = ScrollingFrame
-			Button.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+			Button.BackgroundColor3 = Color3.fromRGB(58, 58, 58)
 			Button.BackgroundTransparency = 0.450
 			Button.Size = UDim2.new(0.980000019, 0, 0.5, 0)
 
@@ -287,13 +295,13 @@ function KW.Window(TITLE_WINDOW)
 			Button_2.TextSize = 14.000
 			Button_2.TextWrapped = true
 			Button_2.Text = __Title__ or "no title"
-			
+
 			Button_2.MouseButton1Click:Connect(function()
 				Create_Ripple(Button)
 				callback()
 			end)
 		end
-		
+
 		function Opstions:NewKeybind(__Title__,fist_key : Enum.KeyCode,callback)
 			callback = callback or function() end
 			local KeyName = input:GetStringForKeyCode(fist_key) or "Unknow"
@@ -309,7 +317,7 @@ function KW.Window(TITLE_WINDOW)
 
 			Keybind.Name = "Keybind"
 			Keybind.Parent = ScrollingFrame
-			Keybind.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+			Keybind.BackgroundColor3 = Color3.fromRGB(58, 58, 58)
 			Keybind.BackgroundTransparency = 0.450
 			Keybind.Size = UDim2.new(0.980000019, 0, 0.5, 0)
 
@@ -350,7 +358,7 @@ function KW.Window(TITLE_WINDOW)
 
 			UICorner_2.CornerRadius = UDim.new(0, 5)
 			UICorner_2.Parent = ViewInfo
-			
+
 			ViewInfo.MouseButton1Click:Connect(function()
 				ViewInfo.Text = "Press Key"
 				local Target = nil
@@ -372,10 +380,10 @@ function KW.Window(TITLE_WINDOW)
 				callback(Target)
 			end)
 		end
-		
+
 		function Opstions:NewToggle(__Title__,callback)
 			callback = callback or function() end
-			
+
 			local Toggle = Instance.new("Frame")
 			local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
 			local UICorner = Instance.new("UICorner")
@@ -386,7 +394,7 @@ function KW.Window(TITLE_WINDOW)
 
 			Toggle.Name = "Toggle"
 			Toggle.Parent = ScrollingFrame
-			Toggle.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+			Toggle.BackgroundColor3 = Color3.fromRGB(58, 58, 58)
 			Toggle.BackgroundTransparency = 0.450
 			Toggle.Size = UDim2.new(0.980000019, 0, 0.5, 0)
 
@@ -449,7 +457,7 @@ function KW.Window(TITLE_WINDOW)
 			Enabled.Image = "rbxassetid://3926309567"
 			Enabled.ImageRectOffset = Vector2.new(784, 420)
 			Enabled.ImageRectSize = Vector2.new(48, 48)
-			
+
 			Toggle_2.MouseButton1Click:Connect(function()
 				Create_Ripple(Toggle)
 				if Enabled.Visible then
@@ -457,11 +465,11 @@ function KW.Window(TITLE_WINDOW)
 				else
 					Enabled.Visible = true
 				end
-				
+
 				callback(Enabled.Visible)
 			end)
 		end
-		
+
 		function Opstions:NewLabel(__Title__)
 			local label = Instance.new("Frame")
 			local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
@@ -470,12 +478,12 @@ function KW.Window(TITLE_WINDOW)
 
 			label.Name = "label"
 			label.Parent = ScrollingFrame
-			label.BackgroundColor3 = Color3.fromRGB(58, 58, 58)
+			label.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
 			label.BackgroundTransparency = 0.450
 			label.Size = UDim2.new(0.980000019, 0, 0.5, 0)
 
 			UIAspectRatioConstraint.Parent = label
-			UIAspectRatioConstraint.AspectRatio = 5.000
+			UIAspectRatioConstraint.AspectRatio = 6.00
 
 			UICorner.CornerRadius = UDim.new(0, 3)
 			UICorner.Parent = label
@@ -495,10 +503,10 @@ function KW.Window(TITLE_WINDOW)
 			Title.TextSize = 14.000
 			Title.TextWrapped = true
 		end
-		
+
 		return Opstions
 	end
-	
+
 	local function updateInput(input)
 		local delta = input.Position - dragStart
 		local position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X,
@@ -526,17 +534,17 @@ function KW.Window(TITLE_WINDOW)
 			end
 		end
 	end)
-	
+
 	CloseButton.MouseButton1Click:Connect(function()
 		KW.Toggle()
 	end)
-	
+
 	input.InputBegan:Connect(function(key)
 		if key.KeyCode == KW.KeyToggle then
 			KW.Toggle()
 		end
 	end)
-	
+
 	return Section,conntroller
 end
 
