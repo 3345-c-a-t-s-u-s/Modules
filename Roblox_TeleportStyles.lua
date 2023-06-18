@@ -25,7 +25,10 @@ function TeleportStyles:Teleport(TargetPosition)
 	if CheckUser() then
 		if HumanoidRootPart then
 			pcall(function()
-				repeat task.wait() HumanoidRootPart.CFrame = CFrame.new(TargetPosition) until HumanoidRootPart.CFrame == CFrame.new(TargetPosition)
+				repeat task.wait()
+					HumanoidRootPart.CFrame = CFrame.new(TargetPosition)
+					local Distance = (HumanoidRootPart.Position - TargetPosition).Magnitude
+				until HumanoidRootPart.CFrame == CFrame.new(TargetPosition) or Distance <= 1.5
 			end)
 			return true
 		end
@@ -111,7 +114,7 @@ coroutine.wrap(function()
 	PART.CanCollide = false
 	PART.CastShadow = false
 	PART.Material = Enum.Material.Neon
-	
+
 	while true do task.wait()
 		pcall(function()
 			if HumanoidRootPart then
