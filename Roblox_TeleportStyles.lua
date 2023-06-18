@@ -25,10 +25,12 @@ function TeleportStyles:Teleport(TargetPosition)
 	if CheckUser() then
 		if HumanoidRootPart then
 			pcall(function()
+					TeleportStyles.Part_Under_Torso = true
 				repeat task.wait()
 					HumanoidRootPart.CFrame = CFrame.new(TargetPosition)
 					local Distance = (HumanoidRootPart.Position - TargetPosition).Magnitude
 				until HumanoidRootPart.CFrame == CFrame.new(TargetPosition) or Distance <= 3.5
+					TeleportStyles.Part_Under_Torso = false
 			end)
 			return true
 		end
