@@ -28,7 +28,7 @@ function TeleportStyles:Teleport(TargetPosition)
 				repeat task.wait()
 					HumanoidRootPart.CFrame = CFrame.new(TargetPosition)
 					local Distance = (HumanoidRootPart.Position - TargetPosition).Magnitude
-				until HumanoidRootPart.CFrame == CFrame.new(TargetPosition) or Distance <= 1.5
+				until HumanoidRootPart.CFrame == CFrame.new(TargetPosition) or Distance <= 3.5
 			end)
 			return true
 		end
