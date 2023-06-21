@@ -184,7 +184,7 @@ function XN.new(Title_Main : string,ToggleKey : Enum.KeyCode)
 	MAIN_FRAME.BackgroundColor3 = Color3.fromRGB(43, 43, 43)
 	MAIN_FRAME.BorderSizePixel = 0
 	MAIN_FRAME.Position = UDim2.new(0.5, 0, 0.302989125, 0)
-	MAIN_FRAME.Size = UDim2.new(0.439999998, 0, 0.439999998, 0)
+	MAIN_FRAME.Size = UDim2.new(0.35, 0, 0.35, 0)
 
 	UICorner_2.CornerRadius = UDim.new(0, 6)
 	UICorner_2.Parent = MAIN_FRAME
