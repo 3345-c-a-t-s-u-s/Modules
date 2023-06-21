@@ -664,7 +664,7 @@ function XN.new(Title_Main : string,ToggleKey : Enum.KeyCode)
 			MAIN_FRAME.Visible = true
 			ASSET_XN.Toggle_boolen = true
 			Tween:Create(TOGGLE_FRAME,TweenInfo.new(1,Enum.EasingStyle.Back,Enum.EasingDirection.In),{Position = UDim2.new(0.5,0,-0.12,0)}):Play()
-			Tween:Create(MAIN_FRAME,TweenInfo.new(0.5,Enum.EasingStyle.Back),{Size = UDim2.new(0.44,0,0.44,0)}):Play()
+			Tween:Create(MAIN_FRAME,TweenInfo.new(0.5,Enum.EasingStyle.Back),{Size = UDim2.new(0.35,0,0.35,0)}):Play()
 		end
 	end
 	
