@@ -8,7 +8,7 @@ function  Noification.Create()
 	local UIListLayout = Instance.new("UIListLayout")
 
 	notification.Name = "notification"
-	notification.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+	notification.Parent =  game:FindFirstChild('CoreGui') or game.Players.LocalPlayer:WaitForChild("PlayerGui")
 	notification.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 	notification.ResetOnSpawn = false
 
